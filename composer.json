@@ -1,0 +1,35 @@
+{
+    "name": "eloquent/phony-peridot",
+    "description": "Phony integration for Peridot.",
+    "keywords": ["mock", "mocking", "stub", "stubbing", "spy", "dummy", "double", "test", "fake", "peridot"],
+    "homepage": "https://github.com/eloquent/phony-peridot",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Erin Millard",
+            "email": "ezzatron@gmail.com",
+            "homepage": "http://ezzatron.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "eloquent/phony": "dev-master",
+        "peridot-php/peridot": "^1"
+    },
+    "require-dev": {
+        "eloquent/asplode": "^2",
+        "friendsofphp/php-cs-fixer": "^1",
+        "peridot-php/leo": "^1",
+        "peridot-php/peridot-code-coverage-reporters": "^2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Eloquent\\Phony\\Peridot\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Eloquent\\Phony\\": ["test/src"]
+        }
+    }
+}

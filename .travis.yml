@@ -1,0 +1,45 @@
+language: php
+
+php:
+    - '5.4'
+    - '5.5'
+    - '5.6'
+    - '7.0'
+    - hhvm
+    - nightly
+
+matrix:
+    fast_finish: true
+    allow_failures:
+        - php: nightly
+
+before_install:
+    - phpenv config-rm xdebug.ini || true
+    - composer config --global github-oauth.github.com $GITHUB_TOKEN
+install: composer install --prefer-dist --no-progress --no-interaction --optimize-autoloader --ignore-platform-reqs
+script: scripts/travis
+after_script: scripts/travis-after
+# deploy:
+#     - provider: script
+#       script: make publish
+#       skip_cleanup: true
+#       on:
+#           php: '7.0'
+#           branch: master
+#     - provider: script
+#       script: make publish
+#       skip_cleanup: true
+#       on:
+#           php: '7.0'
+#           tags: true
+
+env:
+    global:
+        - ELOQUENT_PUBLISH_VERSION=7.0
+        - secure: "QRAA+uvOUM20KLqdaGbGOfT6SCQ9moEw84wHpWLQyh8wgqWyyYVWV69z+1jby2UtXNSKsEl9G0DDHH11h7RzKx6r87tryUk7LGR9QtGb0iRAPE1sTWem+TIrg5zLF7b6Es8+Wi6O/CEIpY3PU5wPdR4d/QgRWK4jNumqfZP3ruvL3m3T9wx5ZsjbS7O2XSDypEtMH5ojBGsmWsP+AvHBMwkf3XrWY4t32YxZYKtVmLoQHeFwcJpjAy+HnYSROSudYC1gHfC7M1ZYB+GYEod9mZwvcXZnbeUjkxHG/nEbc3lSKwc3RZ76ovCtvx//TWlFOWzioNpallI4EIuMuN5dHdN68RR6Z/KAIeKPcaOdETlRL7bMTky9wSyC8j0Yg10FFlqX5r+El4NqZnxKTEVtf0DvphC0fp65wxfUabGyYraaqc4osDeQth8RPl60f9HDXu0eqRoCh61dj0PbIPVIJqQA+Ays8D13b9kelV5pur37dvEPXmEiJogCu/y+lMO1SIq/SfY6aRZUDxdTZePv7nNzRmmzNmBqpwYf0TYQx22REe27Yg3JPiihk+9xoiXyK3MagkuFretUZuYBQawzsDOhhj/RzCWOapLftxLXynWH7CYxmjZ/DwB94CjSWzBnITXhXlRPJwLGe7yN7uhmZERJDp/nthzgTr6g7fIeNRc="
+
+cache:
+    directories:
+        - $HOME/.composer
+
+sudo: false
