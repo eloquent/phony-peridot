@@ -15,7 +15,6 @@ use Closure;
 use DateTime;
 use Eloquent\Phony as x;
 use Generator;
-use Peridot\Core\Scope;
 use Peridot\Core\Suite;
 use Peridot\Core\Test;
 use stdClass;
@@ -26,7 +25,6 @@ describe('PhonyPeridot', function () {
         $this->subject = new PhonyPeridot($this->emitter->mock());
 
         $this->suite = new Suite('suite-a', function ($a1, $a2) {});
-        $this->suite->setScope(new Scope());
         $this->testA = new Test('test-a', function ($a1, $a2) {});
         $this->suite->addTest($this->testA);
         $this->testB = new Test('test-a', function ($a1, $a2) {});
@@ -49,16 +47,8 @@ describe('PhonyPeridot', function () {
 
     it('onSuiteDefine()', function () {
         $this->subject->onSuiteDefine($this->suite);
-        $scopeAdded = false;
-
-        foreach ($this->suite->getScope()->peridotGetChildScopes() as $scope) {
-            if ($scope instanceof PhonyScope) {
-                $scopeAdded = true;
-            }
-        }
 
         expect($this->suite->getDefinitionArguments())->to->equal([null, null]);
-        expect($scopeAdded)->to->be->true();
     });
 
     it('onSuiteStart()', function () {

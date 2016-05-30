@@ -63,8 +63,6 @@ class PhonyPeridot
                 $this->parameterArguments($parameters)
             );
         }
-
-        $suite->getScope()->peridotAddChildScope(new PhonyScope());
     }
 
     /**
@@ -82,8 +80,6 @@ class PhonyPeridot
                 );
             }
         }
-
-        $suite->getScope()->peridotAddChildScope(new PhonyScope());
     }
 
     private function parameterArguments(array $parameters)
