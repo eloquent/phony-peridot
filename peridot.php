@@ -7,7 +7,6 @@ use Peridot\Reporter\CodeCoverageReporters;
 
 require __DIR__ . '/vendor/autoload.php';
 
-error_reporting(-1);
 Asplode::install();
 
 return function (EventEmitterInterface $emitter) {
