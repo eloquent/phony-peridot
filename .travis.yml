@@ -4,7 +4,7 @@ php:
     - '5.4'
     - '5.5'
     - '5.6'
-    - '7.0'
+    - '7.0.6'
     - hhvm
     - nightly
 
@@ -24,18 +24,18 @@ after_script: scripts/travis-after
 #       script: make publish
 #       skip_cleanup: true
 #       on:
-#           php: '7.0'
+#           php: '7.0.6'
 #           branch: master
 #     - provider: script
 #       script: make publish
 #       skip_cleanup: true
 #       on:
-#           php: '7.0'
+#           php: '7.0.6'
 #           tags: true
 
 env:
     global:
-        - ELOQUENT_PUBLISH_VERSION=7.0
+        - ELOQUENT_PUBLISH_VERSION=7.0.6
         - secure: "r6z/HhH6q8e4AhED4/LuhjqudMqiOcMV2NThaqSSH6vDU/LHNA38o1dpemsHKSqpxW38kIIBM8x0apWBdbxEjwPoLwsIq5uZQPoyP01sa0MiZNyXhozxvu+v+vtiBh4A1kZtkeyXDd3hYLGHLI9Q5AyRPen9lZzHlTc42xivcEvf73pZAjFaGcbq/Hv54cZqBPxqCquLeGechKf1dcOPlWjH33rET3M4m0FarcJ36buQfvQ9wJQy9C/gV+b51UR8MVZgtZRiMJgs++ObR1ZYo4AJGGdOGTjBsbOe+iwtz3prVGzOhoC4rhssjow+/TGZwlRhHkjdCh8MJEWumnVtm0ySBMvUsmFIZvaOM6QI5oaQsJSAuyM5iTfrWDwbjhYk8z5gjOrdSwMDt9Hqj15tjfE4JEPzHzLKZPRbncZrw6onWd3210BuqSdDKYb93KW6dY+Dma9Q2RrGdZbFaUvsQvyKYB97K7H6hm8CgfetEnleVh5JHKltG+0f8BbuvtzEFG1PasvsRnjuMJeE04M3Dbb73kVMr3MDazSjQzkY5CBkyZLvVhYZj2tZyQuEsEBwHFwV8J7L/bhxYyZLc1D+y6A66kjPnSzJzlekzJqgxWuJaZEql0h4k7HHvWEs/1t9B0ShT8qGYGqcmB2OI9b14ZrR2YEsacvg0IEQTNqhVco="
 
 cache:
