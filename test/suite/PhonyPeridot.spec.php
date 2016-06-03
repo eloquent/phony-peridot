@@ -34,15 +34,17 @@ describe('PhonyPeridot', function () {
     it('install()', function () {
         $this->subject->install();
 
-        $this->emitter->on->calledWith('suite.define', [$this->subject, 'onSuiteDefine']);
-        $this->emitter->on->calledWith('suite.start', [$this->subject, 'onSuiteStart']);
+        expect($this->emitter->on)->to->have->been->calledWith('suite.define', [$this->subject, 'onSuiteDefine']);
+        expect($this->emitter->on)->to->have->been->calledWith('suite.start', [$this->subject, 'onSuiteStart']);
     });
 
     it('uninstall()', function () {
         $this->subject->uninstall();
 
-        $this->emitter->removeListener->calledWith('suite.define', [$this->subject, 'onSuiteDefine']);
-        $this->emitter->removeListener->calledWith('suite.start', [$this->subject, 'onSuiteStart']);
+        expect($this->emitter->removeListener)->to->have->been
+            ->calledWith('suite.define', [$this->subject, 'onSuiteDefine']);
+        expect($this->emitter->removeListener)->to->have->been
+            ->calledWith('suite.start', [$this->subject, 'onSuiteStart']);
     });
 
     it('onSuiteDefine()', function () {

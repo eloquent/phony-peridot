@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "986e6d7c4de5cbf08d13aaf2116a2afb",
-    "content-hash": "2d0453faa3913ba0f17c28e6610b8528",
+    "hash": "0d55ad6527fe77ec8fef3dc98a69ce84",
+    "content-hash": "3f0b7b32606ba1d3642b3927c982e65f",
     "packages": [
         {
             "name": "eloquent/phony",
@@ -441,6 +441,76 @@
                 "handling"
             ],
             "time": "2016-04-19 01:21:09"
+        },
+        {
+            "name": "eloquent/phony-leo",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ezzatron/phony-leo.git",
+                "reference": "712b9a99b3c47afe0eda68d6d2c5d38ebb91b219"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ezzatron/phony-leo/zipball/712b9a99b3c47afe0eda68d6d2c5d38ebb91b219",
+                "reference": "712b9a99b3c47afe0eda68d6d2c5d38ebb91b219",
+                "shasum": ""
+            },
+            "require": {
+                "eloquent/phony": "dev-master",
+                "peridot-php/leo": "^1",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "eloquent/asplode": "^2",
+                "eloquent/phony-peridot": "dev-master",
+                "friendsofphp/php-cs-fixer": "^1",
+                "peridot-php/peridot": "^1",
+                "peridot-php/peridot-code-coverage-reporters": "^2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Eloquent\\Phony\\Leo\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Eloquent\\Phony\\": [
+                        "test/src"
+                    ]
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erin Millard",
+                    "email": "ezzatron@gmail.com",
+                    "homepage": "http://ezzatron.com/"
+                }
+            ],
+            "description": "Phony integration for Leo.",
+            "homepage": "https://github.com/eloquent/phony-leo",
+            "keywords": [
+                "double",
+                "dummy",
+                "fake",
+                "leo",
+                "mock",
+                "mocking",
+                "peridot",
+                "spy",
+                "stub",
+                "stubbing",
+                "test"
+            ],
+            "support": {
+                "source": "https://github.com/ezzatron/phony-leo/tree/master",
+                "issues": "https://github.com/ezzatron/phony-leo/issues"
+            },
+            "time": "2016-06-03 00:40:00"
         },
         {
             "name": "friendsofphp/php-cs-fixer",
@@ -1242,7 +1312,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "eloquent/phony": 20
+        "eloquent/phony": 20,
+        "eloquent/phony-leo": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
