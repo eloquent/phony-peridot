@@ -187,7 +187,7 @@ var run = function () {
                 }
             }
         } else {
-            document.title = 'Phony';
+            document.title = 'Phony for Peridot';
         }
 
         if ('#toc' === window.location.hash) {
