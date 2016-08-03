@@ -3,7 +3,9 @@
 use Eloquent\Asplode\Asplode;
 use Eloquent\Peridot\Phony\PeridotPhony;
 use Evenement\EventEmitterInterface;
+use Peridot\Console\Environment;
 use Peridot\Reporter\CodeCoverageReporters;
+use Peridot\Reporter\ReporterInterface;
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -16,12 +18,12 @@ return function (EventEmitterInterface $emitter) {
     $reporter = new CodeCoverageReporters($emitter);
     $reporter->register();
 
-    $emitter->on('peridot.start', function ($environment) {
+    $emitter->on('peridot.start', function (Environment $environment) {
         $environment->getDefinition()->getArgument('path')
             ->setDefault('test/suite');
     });
 
-    $emitter->on('code-coverage.start', function ($reporter) {
+    $emitter->on('code-coverage.start', function (ReporterInterface $reporter) {
         $reporter->addDirectoryToWhitelist(__DIR__ . '/src');
     });
 };
