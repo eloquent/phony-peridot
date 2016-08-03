@@ -157,7 +157,7 @@ class PhonyPeridot
                     break;
 
                 default:
-                    $argument = Phony::mock($typeName)->mock();
+                    $argument = Phony::mock($typeName)->get();
             }
 
             $arguments[] = $argument;

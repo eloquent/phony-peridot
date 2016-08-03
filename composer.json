@@ -13,12 +13,11 @@
     ],
     "require": {
         "php": ">=5.4",
-        "eloquent/phony": "dev-master",
+        "eloquent/phony": "^0.13",
         "peridot-php/peridot": "^1"
     },
     "require-dev": {
         "eloquent/asplode": "^2",
-        "eloquent/phony-leo": "dev-master",
         "friendsofphp/php-cs-fixer": "^1",
         "peridot-php/leo": "^1",
         "peridot-php/peridot-code-coverage-reporters": "^2"
@@ -32,11 +31,5 @@
         "psr-4": {
             "Eloquent\\Phony\\": ["test/src"]
         }
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/ezzatron/phony-leo"
-        }
-    ]
+    }
 }
