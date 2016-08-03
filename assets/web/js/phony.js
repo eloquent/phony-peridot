@@ -105,7 +105,7 @@ var run = function () {
     };
 
     var redrawToc = function () {
-        tocElement.style.marginLeft = (870 - document.body.scrollLeft) + 'px';
+        tocElement.style.marginLeft = (830 - document.body.scrollLeft) + 'px';
 
         gumshoe.setDistances();
     };
