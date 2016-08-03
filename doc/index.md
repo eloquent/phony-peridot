@@ -4,7 +4,7 @@
 
 ## Installation
 
-Available as [Composer] package [eloquent/phony-peridot].
+Available as [Composer] package [eloquent/peridot-phony].
 
 <!-- Heading references -->
 
@@ -13,4 +13,4 @@ Available as [Composer] package [eloquent/phony-peridot].
 <!-- External references -->
 
 [composer]: http://getcomposer.org/
-[eloquent/phony-peridot]: https://packagist.org/packages/eloquent/phony-peridot
+[eloquent/peridot-phony]: https://packagist.org/packages/eloquent/peridot-phony

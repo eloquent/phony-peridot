@@ -38,11 +38,11 @@ if (file_exists($workPath)) {
 } else {
     if ($token) {
         $repo = sprintf(
-            'https://%s:x-oauth-basic@github.com/eloquent/phony-peridot.git',
+            'https://%s:x-oauth-basic@github.com/eloquent/peridot-phony.git',
             rawurlencode($token)
         );
     } else {
-        $repo = 'https://github.com/eloquent/phony-peridot.git';
+        $repo = 'https://github.com/eloquent/peridot-phony.git';
     }
 
     exec(

@@ -1,8 +1,8 @@
 {
-    "name": "eloquent/phony-peridot",
+    "name": "eloquent/peridot-phony",
     "description": "Phony integration for Peridot.",
     "keywords": ["mock", "mocking", "stub", "stubbing", "spy", "dummy", "double", "test", "fake", "peridot"],
-    "homepage": "https://github.com/eloquent/phony-peridot",
+    "homepage": "https://github.com/eloquent/peridot-phony",
     "license": "MIT",
     "authors": [
         {

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "64ae44586c74e5625be5de10156fdf98",
-    "content-hash": "1a687414a591be3d1be384010e6bf439",
+    "hash": "df19f09c0d4eeea0ac58083ed6f460ac",
+    "content-hash": "bd12ef07f171d4112e99f89e0b0557f1",
     "packages": [
         {
             "name": "eloquent/phony",
