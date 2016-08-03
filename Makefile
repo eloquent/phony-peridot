@@ -1,6 +1,6 @@
 test: install
 	php --version
-	php -d "hhvm.php7.scalar_types=1" vendor/bin/peridot
+	php vendor/bin/peridot
 
 coverage: install
 	phpdbg --version
