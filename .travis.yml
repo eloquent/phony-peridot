@@ -30,7 +30,6 @@ matrix:
 
 before_install:
     - phpenv config-rm xdebug.ini || true
-    - if [[ -f /etc/hhvm/php.ini ]]; then echo hhvm.php7.all=1 >> /etc/hhvm/php.ini; fi
     - composer config --global github-oauth.github.com $GITHUB_TOKEN
 install: composer install --prefer-dist --no-progress --no-interaction --optimize-autoloader --ignore-platform-reqs
 script: scripts/travis

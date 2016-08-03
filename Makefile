@@ -1,6 +1,6 @@
 test: install
 	php --version
-	vendor/bin/peridot
+	php -d "hhvm.php7.all=1" vendor/bin/peridot
 
 coverage: install
 	phpdbg --version
