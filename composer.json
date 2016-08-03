@@ -25,7 +25,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Eloquent\\Phony\\Peridot\\": "src"
+            "Eloquent\\Peridot\\Phony\\": "src"
         }
     },
     "autoload-dev": {

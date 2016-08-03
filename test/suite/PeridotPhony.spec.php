@@ -9,7 +9,7 @@
  * that was distributed with this source code.
  */
 
-namespace Eloquent\Phony\Peridot;
+namespace Eloquent\Peridot\Phony;
 
 use Closure;
 use DateTime;
@@ -19,10 +19,10 @@ use Peridot\Core\Suite;
 use Peridot\Core\Test;
 use stdClass;
 
-describe('PhonyPeridot', function () {
+describe('PeridotPhony', function () {
     beforeEach(function () {
         $this->emitter = x\mock('Evenement\EventEmitterInterface');
-        $this->subject = new PhonyPeridot($this->emitter->get());
+        $this->subject = new PeridotPhony($this->emitter->get());
 
         $this->suite = new Suite('suite-a', function ($a1, $a2) {});
         $this->testA = new Test('test-a', function ($a1, $a2) {});

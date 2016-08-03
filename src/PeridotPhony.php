@@ -9,7 +9,7 @@
  * that was distributed with this source code.
  */
 
-namespace Eloquent\Phony\Peridot;
+namespace Eloquent\Peridot\Phony;
 
 use Eloquent\Phony\Phony;
 use Evenement\EventEmitterInterface;
@@ -19,10 +19,10 @@ use ReflectionFunction;
 /**
  * A Peridot plugin for Phony integration.
  */
-class PhonyPeridot
+class PeridotPhony
 {
     /**
-     * Construct a new Phony Peridot plugin.
+     * Construct a new Peridot Phony plugin.
      */
     public function __construct(EventEmitterInterface $emitter)
     {
