@@ -102,7 +102,6 @@ if ($versions) {
 
     $latestVersion = $versions[0]->string();
 } else {
-    echo 'wat';
     $latestVersion = 'master';
 }
 
@@ -131,6 +130,7 @@ symlink($latestVersion, $latestPath);
 
 echo "Updating version data...\n";
 
+passthru('mkdir -p ' . escapeshellarg($workPath . '/data'));
 file_put_contents(
     $workPath . '/data/versions.json',
     json_encode($versionStrings, JSON_PRETTY_PRINT) . "\n"

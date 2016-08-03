@@ -19,6 +19,7 @@
     "require-dev": {
         "eloquent/asplode": "^2",
         "friendsofphp/php-cs-fixer": "1.11.4",
+        "icecave/semver": "^3",
         "peridot-php/leo": "^1",
         "peridot-php/peridot-code-coverage-reporters": "^2"
     },
