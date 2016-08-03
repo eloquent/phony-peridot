@@ -27,7 +27,7 @@ if [[ -z "$ELOQUENT_PUBLISH_VERSION" ]]; then
 fi
 
 if [[ "$TRAVIS_PHP_VERSION" == "$ELOQUENT_PUBLISH_VERSION" ]]; then
-    make coverage
+    make ci
 else
     make test
 fi

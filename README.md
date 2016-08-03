@@ -15,5 +15,6 @@
 [current version]: https://packagist.org/packages/eloquent/peridot-phony
 [current windows build status]: https://ci.appveyor.com/project/eloquent/peridot-phony
 [hhvm-image]: https://img.shields.io/hhvm/eloquent/peridot-phony/master.svg?style=flat-square "Tested against HHVM"
+[hhvm]: http://hhvm.com/
 [version-image]: https://img.shields.io/packagist/v/eloquent/peridot-phony.svg?style=flat-square "This project uses semantic versioning"
 [windows-build-image]: https://img.shields.io/appveyor/ci/eloquent/peridot-phony/master.svg?label=windows&style=flat-square "Current Windows build status for the master branch"

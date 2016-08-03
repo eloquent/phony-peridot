@@ -1,10 +1,15 @@
 test: install
 	php --version
-	php vendor/bin/peridot
+	vendor/bin/peridot
 
 coverage: install
 	phpdbg --version
 	phpdbg -qrr vendor/bin/peridot --reporter html-code-coverage --code-coverage-path=coverage
+
+ci: install
+	phpdbg --version
+	vendor/bin/peridot
+	phpdbg -qrr vendor/bin/peridot --reporter xml-code-coverage --code-coverage-path=coverage
 
 open-coverage:
 	open coverage/index.html
@@ -23,7 +28,7 @@ serve: web
 publish: web
 	@scripts/publish-web
 
-.PHONY: test coverage open-coverage lint install serve publish
+.PHONY: test coverage open-coverage lint install serve publish ci
 
 vendor/autoload.php: composer.lock
 	composer install

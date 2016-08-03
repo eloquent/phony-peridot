@@ -18,4 +18,4 @@ install:
 
 test_script:
   - cd C:\projects\peridot-phony
-  - vendor/bin/phpunit --no-coverage
+  - vendor/bin/peridot
