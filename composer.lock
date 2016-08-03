@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "25ad3c0285dfba97b1f791cbdd41efee",
-    "content-hash": "9bda2f73082565e4aab1225ff34d37ec",
+    "hash": "64ae44586c74e5625be5de10156fdf98",
+    "content-hash": "1a687414a591be3d1be384010e6bf439",
     "packages": [
         {
             "name": "eloquent/phony",
@@ -446,16 +446,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v1.11.6",
+            "version": "v1.11.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "41dc93abd2937a85a3889e28765231d574d2bac8"
+                "reference": "eeb280e909834603ffe03524dbe0066e77c83084"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/41dc93abd2937a85a3889e28765231d574d2bac8",
-                "reference": "41dc93abd2937a85a3889e28765231d574d2bac8",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/eeb280e909834603ffe03524dbe0066e77c83084",
+                "reference": "eeb280e909834603ffe03524dbe0066e77c83084",
                 "shasum": ""
             },
             "require": {
@@ -469,12 +469,8 @@
                 "symfony/process": "~2.3|~3.0",
                 "symfony/stopwatch": "~2.5|~3.0"
             },
-            "conflict": {
-                "hhvm": "<3.9"
-            },
             "require-dev": {
-                "phpunit/phpunit": "^4.5|^5",
-                "satooshi/php-coveralls": "^0.7.1"
+                "satooshi/php-coveralls": "0.7.*@dev"
             },
             "bin": [
                 "php-cs-fixer"
@@ -500,7 +496,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2016-07-22 06:46:28"
+            "time": "2016-06-07 07:51:27"
         },
         {
             "name": "icecave/isolator",

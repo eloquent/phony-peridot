@@ -18,7 +18,7 @@
     },
     "require-dev": {
         "eloquent/asplode": "^2",
-        "friendsofphp/php-cs-fixer": "^1",
+        "friendsofphp/php-cs-fixer": "1.11.4",
         "peridot-php/leo": "^1",
         "peridot-php/peridot-code-coverage-reporters": "^2"
     },
