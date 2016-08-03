@@ -207,10 +207,11 @@ foreach ($versionStrings as $version) {
 
 echo "Checking for differences...\n";
 
-$exitCode = -1;
-passthru('git diff --exit-code', $exitCode);
+exec('git status --porcelain', $output);
+$output = implode("\n", $output) . "\n";
+echo $output;
 
-if (0 === $exitCode) {
+if ('' === trim($output)) {
     echo "No website changes detected.\n";
 
     exit(0);

@@ -6,10 +6,6 @@
 
 Available as [Composer] package [eloquent/peridot-phony].
 
-## Test
-
-Just testing documentation publishing.
-
 <!-- Heading references -->
 
 [installation]: #installation
