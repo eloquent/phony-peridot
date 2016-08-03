@@ -9,7 +9,7 @@ coverage: install
 ci: install
 	phpdbg --version
 	vendor/bin/peridot
-	phpdbg -qrr vendor/bin/peridot --reporter xml-code-coverage --code-coverage-path=coverage
+	phpdbg -qrr vendor/bin/peridot --reporter clover-code-coverage --code-coverage-path=coverage/clover.xml
 
 open-coverage:
 	open coverage/index.html
