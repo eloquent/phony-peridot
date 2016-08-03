@@ -5,7 +5,7 @@
 }
 
 #content {
-    width: 820px;
+    width: 780px;
     padding-bottom: 2000px;
     margin-bottom: 2.25em;
     background-image: url("../img/phony.png");
@@ -15,8 +15,8 @@
 
 #toc {
     position: fixed;
-    margin-left: 870px;
-    width: 300px;
+    margin-left: 830px;
+    width: 340px;
 }
 
 #toc > h2 {
@@ -137,4 +137,8 @@
 .markdown-body hr {
     height: 1px;
     background-color: white;
+}
+
+.markdown-body img {
+    width: 100%;
 }

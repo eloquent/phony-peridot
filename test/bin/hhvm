@@ -1,6 +1,6 @@
 #!/bin/sh
-
-set -e
-
-docker build -f hhvm.Dockerfile -t phony-leo-hhvm .
-docker run -it --rm phony-leo-hhvm
+docker run -it --rm \
+    -v "${PWD}:/usr/src/phony-peridot" \
+    -w /usr/src/phony-peridot \
+    -e "PATH=vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" \
+    hhvm/hhvm "$@"

@@ -67,8 +67,8 @@ var run = function () {
     tocElement.appendChild(tocListElementCopy);
 
     var phonyLink = document.createElement('a');
-    phonyLink.href = '#phony';
-    phonyLink.appendChild(document.createTextNode('Phony'));
+    phonyLink.href = '#phony-for-peridot';
+    phonyLink.appendChild(document.createTextNode('Phony for Peridot'));
 
     var phonyListItem = document.createElement('li');
     phonyListItem.style.display = 'none';
@@ -151,7 +151,8 @@ var run = function () {
             }
 
             if (target && target.classList.contains('anchor')) {
-                document.title = target.parentNode.innerText + ' - Phony';
+                document.title =
+                    target.parentNode.innerText + ' - Phony for Peridot';
             }
 
             target = null;
@@ -167,10 +168,11 @@ var run = function () {
 
                 if (matches) {
                     if ('facade' === matches[1]) {
-                        document.title = matches[2] + '() - Phony';
+                        document.title = matches[2] + '() - Phony for Peridot';
                     } else {
                         document.title =
-                            '$' + matches[1] + '->' + matches[2] + '() - Phony';
+                            '$' + matches[1] + '->' + matches[2] +
+                            '() - Phony for Peridot';
                     }
                 }
 
@@ -181,7 +183,7 @@ var run = function () {
                         '$' + matches[1] +
                         ' ' + matches[2] +
                         ' ' + matches[3] +
-                        ' - Phony';
+                        ' - Phony for Peridot';
                 }
             }
         } else {
@@ -198,6 +200,31 @@ var run = function () {
         }
     };
 
+    var upgradeSvg = function () {
+        var images = document.querySelectorAll('img[src$=".svg"]');
+
+        for (var i = 0; i < images.length; ++i) {
+            var image = images[i];
+            var link = image.parentNode;
+            var container = link.parentNode;
+
+            container.appendChild(image);
+            container.removeChild(link);
+        }
+
+        SVGInjector(
+            images,
+            {},
+            function () {
+                hash = window.location.hash;
+                window.location.hash = '#';
+                window.location.hash = hash;
+
+                gumshoe.setDistances();
+            }
+        );
+    };
+
     window.addEventListener('hashchange', dispatch);
     document.addEventListener('scroll', _.throttle(redrawToc, 10));
     tocHideElement.addEventListener('click', hideToc);
@@ -211,7 +238,12 @@ var run = function () {
     );
     fetchVersions();
     dispatch();
+    upgradeSvg();
     redrawToc();
 };
 
-document.addEventListener('DOMContentLoaded', run);
+if (document.readyState != 'loading'){
+    run();
+} else {
+    document.addEventListener('DOMContentLoaded', run);
+}

@@ -2,6 +2,8 @@
 
 - [Installation]
 
+## Installation
+
 Available as [Composer] package [eloquent/phony-peridot].
 
 <!-- Heading references -->
