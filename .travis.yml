@@ -30,6 +30,7 @@ matrix:
 
 before_install:
     - phpenv config-rm xdebug.ini || true
+    - phpenv config-add phony.ini
     - composer config --global github-oauth.github.com $GITHUB_TOKEN
 install: composer install --prefer-dist --no-progress --no-interaction --optimize-autoloader --ignore-platform-reqs
 script: scripts/travis
