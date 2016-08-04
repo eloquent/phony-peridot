@@ -22,32 +22,44 @@ use ReflectionFunction;
 class PeridotPhony
 {
     /**
-     * Construct a new Peridot Phony plugin.
+     * Install a new Peridot Phony plugin to the supplied emitter.
+     *
+     * @return self The newly created plugin.
      */
-    public function __construct(EventEmitterInterface $emitter)
+    public static function install(EventEmitterInterface $emitter)
     {
-        $this->emitter = $emitter;
-        $this->isScalarTypeHintSupported =
-            method_exists('ReflectionParameter', 'getType');
+        $instance = new self();
+        $instance->attach($emitter);
+
+        return $instance;
     }
 
     /**
-     * Install the plugin.
+     * Create a new Peridot Phony plugin.
+     *
+     * @return self The newly created plugin.
      */
-    public function install()
+    public static function create()
     {
-        $this->emitter->on('suite.define', [$this, 'onSuiteDefine']);
-        $this->emitter->on('suite.start', [$this, 'onSuiteStart']);
+        return new self();
     }
 
     /**
-     * Uninstall the plugin.
+     * Attach the plugin.
      */
-    public function uninstall()
+    public function attach(EventEmitterInterface $emitter)
     {
-        $this->emitter
-            ->removeListener('suite.define', [$this, 'onSuiteDefine']);
-        $this->emitter->removeListener('suite.start', [$this, 'onSuiteStart']);
+        $emitter->on('suite.define', [$this, 'onSuiteDefine']);
+        $emitter->on('suite.start', [$this, 'onSuiteStart']);
+    }
+
+    /**
+     * Detach the plugin.
+     */
+    public function detach(EventEmitterInterface $emitter)
+    {
+        $emitter->removeListener('suite.define', [$this, 'onSuiteDefine']);
+        $emitter->removeListener('suite.start', [$this, 'onSuiteStart']);
     }
 
     /**
@@ -80,6 +92,12 @@ class PeridotPhony
                 );
             }
         }
+    }
+
+    private function __construct()
+    {
+        $this->isScalarTypeHintSupported =
+            method_exists('ReflectionParameter', 'getType');
     }
 
     private function parameterArguments(array $parameters)
@@ -166,6 +184,5 @@ class PeridotPhony
         return $arguments;
     }
 
-    private $emitter;
     private $isScalarTypeHintSupported;
 }

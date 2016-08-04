@@ -17,11 +17,13 @@
         "peridot-php/peridot": "^1"
     },
     "require-dev": {
+        "ext-pdo": "*",
         "eloquent/asplode": "^2",
         "friendsofphp/php-cs-fixer": "1.11.4",
         "icecave/semver": "^3",
         "peridot-php/leo": "^1",
-        "peridot-php/peridot-code-coverage-reporters": "^2"
+        "peridot-php/peridot-code-coverage-reporters": "^2",
+        "psr/log": "^1"
     },
     "autoload": {
         "psr-4": {

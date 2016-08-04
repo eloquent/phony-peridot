@@ -7,13 +7,10 @@ use Peridot\Console\Environment;
 use Peridot\Reporter\CodeCoverageReporters;
 use Peridot\Reporter\ReporterInterface;
 
-require __DIR__ . '/vendor/autoload.php';
-
 Asplode::install();
 
 return function (EventEmitterInterface $emitter) {
-    $phony = new PeridotPhony($emitter);
-    $phony->install();
+    PeridotPhony::install($emitter);
 
     $reporter = new CodeCoverageReporters($emitter);
     $reporter->register();

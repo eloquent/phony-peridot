@@ -21,8 +21,7 @@ use stdClass;
 
 describe('PeridotPhony', function () {
     beforeEach(function () {
-        $this->emitter = x\mock('Evenement\EventEmitterInterface');
-        $this->subject = new PeridotPhony($this->emitter->get());
+        $this->subject = PeridotPhony::create();
 
         $this->suite = new Suite('suite-a', function ($a1, $a2) {});
         $this->testA = new Test('test-a', function ($a1, $a2) {});
@@ -31,18 +30,20 @@ describe('PeridotPhony', function () {
         $this->suite->addTest($this->testB);
     });
 
-    it('install()', function () {
-        $this->subject->install();
+    it('attach()', function () {
+        $emitter = x\mock('Evenement\EventEmitterInterface');
+        $this->subject->install($emitter->get());
 
-        $this->emitter->on->calledWith('suite.define', [$this->subject, 'onSuiteDefine']);
-        $this->emitter->on->calledWith('suite.start', [$this->subject, 'onSuiteStart']);
+        $emitter->on->calledWith('suite.define', [$this->subject, 'onSuiteDefine']);
+        $emitter->on->calledWith('suite.start', [$this->subject, 'onSuiteStart']);
     });
 
-    it('uninstall()', function () {
-        $this->subject->uninstall();
+    it('detach()', function () {
+        $emitter = x\mock('Evenement\EventEmitterInterface');
+        $this->subject->detach($emitter->get());
 
-        $this->emitter->removeListener->calledWith('suite.define', [$this->subject, 'onSuiteDefine']);
-        $this->emitter->removeListener->calledWith('suite.start', [$this->subject, 'onSuiteStart']);
+        $emitter->removeListener->calledWith('suite.define', [$this->subject, 'onSuiteDefine']);
+        $emitter->removeListener->calledWith('suite.start', [$this->subject, 'onSuiteStart']);
     });
 
     it('onSuiteDefine()', function () {
