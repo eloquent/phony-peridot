@@ -64,6 +64,8 @@ class PeridotPhony
 
     /**
      * Handle the definition of a suite.
+     *
+     * @access private
      */
     public function onSuiteDefine(Suite $suite)
     {
@@ -79,6 +81,8 @@ class PeridotPhony
 
     /**
      * Handle the start of a suite.
+     *
+     * @access private
      */
     public function onSuiteStart(Suite $suite)
     {
