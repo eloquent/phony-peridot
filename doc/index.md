@@ -18,7 +18,7 @@ Alternatively, [@ezzatron] may be contacted directly via [Twitter].
 
 ## Usage
 
-The plugin must be installed in the [Peridot] configuration:
+The plugin must be installed in the [Peridot configuration]:
 
 ```php
 <?php // peridot.php
@@ -28,8 +28,6 @@ use Evenement\EventEmitterInterface;
 
 return function (EventEmitterInterface $emitter) {
     PeridotPhony::install($emitter);
-
-    // ...
 };
 ```
 
@@ -74,5 +72,5 @@ describe('Phony for Peridot', function () {
 [eloquent/peridot-phony]: https://packagist.org/packages/eloquent/peridot-phony
 [github issue]: https://github.com/eloquent/peridot-phony/issues
 [mock handle]: http://eloquent-software.com/phony/latest/#mock-handles
-[peridot]: http://peridot-php.github.io/
+[peridot configuration]: http://peridot-php.github.io/plugins.html
 [twitter]: https://twitter.com/ezzatron

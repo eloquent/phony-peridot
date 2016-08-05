@@ -30,7 +30,7 @@ describe('Functional tests', function () {
         ) {
             expect($array)->to->equal([]);
             expect($object)->to->loosely->equal((object) []);
-            expect($callable)->to->be->an->instanceof('Eloquent\Phony\Spy\SpyVerifier');
+            expect($callable)->to->be->an->instanceof('Eloquent\Phony\Stub\StubVerifier');
             expect($callable())->to->be->null();
             expect($closure())->to->be->null();
             expect($time)->to->be->an->instanceof('Eloquent\Phony\Mock\Mock');
@@ -49,7 +49,7 @@ describe('Functional tests', function () {
         ) {
             expect($array)->to->equal([]);
             expect($object)->to->loosely->equal((object) []);
-            expect($callable)->to->be->an->instanceof('Eloquent\Phony\Spy\SpyVerifier');
+            expect($callable)->to->be->an->instanceof('Eloquent\Phony\Stub\StubVerifier');
             expect($callable())->to->be->null();
             expect($closure())->to->be->null();
             expect($time)->to->be->an->instanceof('Eloquent\Phony\Mock\Mock');
