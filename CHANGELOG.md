@@ -1,5 +1,5 @@
 # Phony for Peridot changelog
 
-## Next release
+## 0.1.0 (2016-08-05)
 
-- **[NEW]** Initial implementation.
+- **[NEW]** Initial release.
