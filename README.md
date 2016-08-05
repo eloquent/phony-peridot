@@ -37,13 +37,11 @@ In other words, if a [Peridot] test (or suite) requires a mock object, it can be
 defined to have a parameter with an appropriate [type declaration], and it will
 automatically receive a mock of that type as an argument when run.
 
-Scalar types, and some other type declarations are also [supported].
+[Stubs] for `callable` types, and "empty" values for other type declarations are
+also [supported].
 
-[peridot]: http://peridot-php.github.io/
-[phony]: http://eloquent-software.com/phony/
-[supported]: #supported-types
 
-## Usage
+## Plugin installation
 
 The plugin must be installed in the [Peridot configuration file]:
 
@@ -58,8 +56,10 @@ return function (EventEmitterInterface $emitter) {
 };
 ```
 
-In order to perform stubbing and verification, it is necessary to use
-[`on()`] to retrieve the [mock handle] first:
+## Dependency injection
+
+Once the plugin is installed, any tests or suites that are defined with
+parameters will be supplied with matching arguments when run:
 
 ```php
 <?php // example.spec.php
@@ -70,7 +70,22 @@ describe('Phony for Peridot', function () {
     it('Auto-wires test dependencies', function (PDO $db) {
         expect($db)->to->be->an->instanceof('PDO');
     });
+});
+```
 
+### Injected mock objects
+
+*Phony for Peridot* supports automatic injection of [mock objects]. Because
+[Phony] doesn't alter the interface of mocked objects, it is necessary to use
+[`on()`] to retrieve the [mock handle] in order to perform [stubbing] and
+[verification]:
+
+```php
+<?php // example.spec.php
+
+use Eloquent\Phony as x;
+
+describe('Phony for Peridot', function () {
     it('Supports stubbing', function (PDO $db) {
         x\on($db)->exec->with('DELETE FROM users')->returns(111);
 
@@ -85,7 +100,25 @@ describe('Phony for Peridot', function () {
 });
 ```
 
-[peridot configuration file]: http://peridot-php.github.io/plugins.html
+### Injected stubs
+
+*Phony for Peridot* supports automatic injection of [stubs]:
+
+```php
+<?php // example.spec.php
+
+use Eloquent\Phony as x;
+
+describe('Phony for Peridot', function () {
+    it('Supports callable stubs', function (callable $stub) {
+        $stub->with('a', 'b')->returns('c');
+        $stub('a', 'b');
+
+        $stub->calledWith('a', 'b');
+        $stub->returned('c');
+    });
+});
+```
 
 ## Supported types
 
@@ -112,22 +145,28 @@ By necessity, the supplied value will not be wrapped in a [mock handle]. In
 order to obtain a handle, simply use [`on()`]:
 
 ```php
-it('Example mock handle retrieval', function (PDO $mock) {
+it('Example mock handle retrieval', function (ClassA $mock) {
     $handle = on($mock);
 });
 ```
-
-[`stub()`]: http://eloquent-software.com/phony/latest/#facade.stub
-[mock]: http://eloquent-software.com/phony/latest/#mocks
 
 ## License
 
 For the full copyright and license information, please view the [LICENSE file].
 
-[license file]: LICENSE
-
 <!-- References -->
 
 [`on()`]: http://eloquent-software.com/phony/latest/#facade.on
+[`stub()`]: http://eloquent-software.com/phony/latest/#facade.stub
+[license file]: LICENSE
 [mock handle]: http://eloquent-software.com/phony/latest/#mock-handles
+[mock objects]: http://eloquent-software.com/phony/latest/#mocks
+[mock]: http://eloquent-software.com/phony/latest/#mocks
+[peridot configuration file]: http://peridot-php.github.io/plugins.html
+[peridot]: http://peridot-php.github.io/
+[phony]: http://eloquent-software.com/phony/latest/
+[stubbing]: http://eloquent-software.com/phony/latest/#stubs
+[stubs]: http://eloquent-software.com/phony/latest/#stubs
+[supported]: #supported-types
 [type declaration]: http://php.net/functions.arguments#functions.arguments.type-declaration
+[verification]: http://eloquent-software.com/phony/latest/#verification

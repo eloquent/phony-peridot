@@ -27,4 +27,12 @@ describe('Phony for Peridot', function () {
 
         x\on($db)->exec->calledWith('DROP TABLE users');
     });
+
+    it('Supports callable stubs', function (callable $stub) {
+        $stub->with('a', 'b')->returns('c');
+        $stub('a', 'b');
+
+        $stub->calledWith('a', 'b');
+        $stub->returned('c');
+    });
 });
