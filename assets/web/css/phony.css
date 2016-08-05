@@ -1,111 +1,15 @@
 #container {
-    width: 1230px;
+    width: 980px;
     margin: 0 auto;
     padding: 0 2.25em;
 }
 
 #content {
-    width: 780px;
     padding-bottom: 2000px;
     margin-bottom: 2.25em;
     background-image: url("../img/phony.png");
     background-position: center bottom;
     background-repeat: no-repeat;
-}
-
-#toc {
-    position: fixed;
-    margin-left: 830px;
-    width: 340px;
-}
-
-#toc > h2 {
-    padding-bottom: 0.3em;
-    font-size: 2.25em;
-    line-height: 1.2;
-    margin-top: 0;
-}
-#toc h2 span {
-    font-size: 1.75rem;
-}
-#toc > h2 > a {
-    float: right;
-}
-#toc > h2 a {
-    font-size: 1.8rem;
-    margin-top: .5rem;
-    margin-left: .5rem;
-    font-weight: normal;
-    color: #333;
-}
-#toc > h2 a:hover {
-    color: #4078c0;
-}
-
-#toc ul {
-    display: none;
-    padding-left: 1em;
-    list-style: none;
-}
-
-#toc li.active ul {
-    display: block;
-}
-#toc li.active ul ul {
-    display: none;
-}
-#toc li.active ul li.active ul {
-    display: block;
-}
-
-#toc > ul {
-    display: block;
-    padding-left: 0;
-}
-
-#toc li.active {
-    font-weight: bold;
-}
-#toc li.active li {
-    font-weight: normal;
-}
-#toc li.active li.active {
-    font-weight: bold;
-}
-
-#versions {
-    position: absolute;
-    right: 0;
-    text-align: right;
-    background: white;
-    border: 1px solid #eee;
-    outline: .5em solid white;
-}
-#toc > ul#versions {
-    padding: .5em 1em;
-}
-#versions a {
-    display: none;
-    pointer-events: none;
-    color: #ccc;
-}
-#versions a.current {
-    display: inline;
-}
-#versions a.current:before {
-    content: "v: ";
-}
-
-#versions:hover a {
-    display: inline;
-    pointer-events: auto;
-    color: #4078c0;
-}
-#versions:hover a.current {
-    font-weight: bold;
-}
-#versions:hover a.current:before {
-    content: "";
 }
 
 .markdown-body {
@@ -137,8 +41,4 @@
 .markdown-body hr {
     height: 1px;
     background-color: white;
-}
-
-.markdown-body img {
-    width: 100%;
 }

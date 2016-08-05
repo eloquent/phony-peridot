@@ -35,19 +35,6 @@ before_install:
 install: composer install --prefer-dist --no-progress --no-interaction --optimize-autoloader --ignore-platform-reqs
 script: scripts/travis
 after_script: scripts/travis-after
-deploy:
-    - provider: script
-      script: make publish
-      skip_cleanup: true
-      on:
-          php: '7.0'
-          branch: master
-    - provider: script
-      script: make publish
-      skip_cleanup: true
-      on:
-          php: '7.0'
-          tags: true
 
 env:
     global:

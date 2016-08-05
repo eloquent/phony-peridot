@@ -6,6 +6,5 @@
 .travis.yml export-ignore
 appveyor.yml export-ignore
 /assets/ export-ignore
-/doc/ export-ignore
 /scripts/ export-ignore
 /test/ export-ignore

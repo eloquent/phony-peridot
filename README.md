@@ -22,11 +22,13 @@
 ## Installation and documentation
 
 - Available as [Composer] package [eloquent/peridot-phony].
-- Read the [documentation].
+- Read the [Phony documentation].
+- Read the [Peridot documentation].
 
 [composer]: http://getcomposer.org/
-[documentation]: http://eloquent-software.com/peridot-phony/latest/
 [eloquent/peridot-phony]: https://packagist.org/packages/eloquent/peridot-phony
+[Peridot documentation]: http://peridot-php.github.io/
+[Phony documentation]: http://eloquent-software.com/peridot-phony/latest/
 
 ## What is *Phony for Peridot*?
 
@@ -46,8 +48,6 @@ also [supported].
 The plugin must be installed in the [Peridot configuration file]:
 
 ```php
-<?php // peridot.php
-
 use Eloquent\Peridot\Phony\PeridotPhony;
 use Evenement\EventEmitterInterface;
 
@@ -62,8 +62,6 @@ Once the plugin is installed, any tests or suites that are defined with
 parameters will be supplied with matching arguments when run:
 
 ```php
-<?php // example.spec.php
-
 use Eloquent\Phony as x;
 
 describe('Phony for Peridot', function () {
@@ -81,8 +79,6 @@ describe('Phony for Peridot', function () {
 [verification]:
 
 ```php
-<?php // example.spec.php
-
 use Eloquent\Phony as x;
 
 describe('Phony for Peridot', function () {
@@ -105,8 +101,6 @@ describe('Phony for Peridot', function () {
 *Phony for Peridot* supports automatic injection of [stubs]:
 
 ```php
-<?php // example.spec.php
-
 use Eloquent\Phony as x;
 
 describe('Phony for Peridot', function () {

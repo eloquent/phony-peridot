@@ -4,7 +4,6 @@ $finder = Symfony\CS\Finder\DefaultFinder::create()
     ->in(__DIR__)
     ->exclude(
         array(
-            'build',
             'coverage',
             'vendor',
             'web',

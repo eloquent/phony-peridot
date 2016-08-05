@@ -19,16 +19,13 @@ lint: install
 
 install: vendor/autoload.php
 
-web: install $(shell find doc assets/web)
+web: install README.md $(shell find assets/web)
 	scripts/build-web
 
 serve: web
 	php -S 0.0.0.0:8000 -t web
 
-publish: web
-	@scripts/publish-web
-
-.PHONY: test coverage open-coverage lint install serve publish ci
+.PHONY: test coverage open-coverage lint install serve ci
 
 vendor/autoload.php: composer.lock
 	composer install
