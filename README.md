@@ -98,7 +98,8 @@ describe('Phony for Peridot', function () {
 
 ### Injected stubs
 
-*Phony for Peridot* supports automatic injection of [stubs]:
+*Phony for Peridot* supports automatic injection of [stubs] for parameters with
+a `callable` type declaration:
 
 ```php
 use Eloquent\Phony as x;
