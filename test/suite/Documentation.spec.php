@@ -32,7 +32,6 @@ describe('Phony for Peridot', function () {
         $stub->with('a', 'b')->returns('c');
         $stub('a', 'b');
 
-        $stub->calledWith('a', 'b');
-        $stub->returned('c');
+        $stub->calledWith('a', 'b')->firstCall()->returned('c');
     });
 });

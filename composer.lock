@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "eloquent/phony",
-            "version": "0.13.2",
+            "version": "0.13.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/phony.git",
-                "reference": "81eeba86429314cff2dc0ace171ef3258890d492"
+                "reference": "b3ab895c5b959fc6b1085c0b1c3c37d2b7881949"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/phony/zipball/81eeba86429314cff2dc0ace171ef3258890d492",
-                "reference": "81eeba86429314cff2dc0ace171ef3258890d492",
+                "url": "https://api.github.com/repos/eloquent/phony/zipball/b3ab895c5b959fc6b1085c0b1c3c37d2b7881949",
+                "reference": "b3ab895c5b959fc6b1085c0b1c3c37d2b7881949",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
                 "stubbing",
                 "test"
             ],
-            "time": "2016-08-04 23:21:21"
+            "time": "2016-08-07 12:26:56"
         },
         {
             "name": "evenement/evenement",
