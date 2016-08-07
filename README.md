@@ -27,8 +27,8 @@
 
 [composer]: http://getcomposer.org/
 [eloquent/peridot-phony]: https://packagist.org/packages/eloquent/peridot-phony
-[Peridot documentation]: http://peridot-php.github.io/
-[Phony documentation]: http://eloquent-software.com/peridot-phony/latest/
+[peridot documentation]: http://peridot-php.github.io/
+[phony documentation]: http://eloquent-software.com/peridot-phony/latest/
 
 ## What is *Phony for Peridot*?
 
