@@ -11,9 +11,6 @@ ci: install
 	vendor/bin/peridot
 	phpdbg -qrr vendor/bin/peridot --reporter clover-code-coverage --code-coverage-path=coverage/clover.xml
 
-open-coverage:
-	open coverage/index.html
-
 lint: install
 	vendor/bin/php-cs-fixer fix
 
@@ -25,7 +22,13 @@ web: install README.md $(shell find assets/web)
 serve: web
 	php -S 0.0.0.0:8000 -t web
 
-.PHONY: test coverage open-coverage lint install serve ci
+open-coverage:
+	open coverage/index.html
+
+open-web:
+	open http://localhost:8000/
+
+.PHONY: test coverage lint install serve ci open-coverage open-web
 
 vendor/autoload.php: composer.lock
 	composer install
