@@ -1,6 +1,6 @@
 # Phony for Peridot changelog
 
-## Next release
+## 0.2.0 (2017-04-24)
 
 - **[BC BREAK]** Renamed from `peridot-phony` to `phony-peridot`, to match new
   integration repository conventions.
