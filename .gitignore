@@ -1,5 +1,4 @@
-/build/
 /coverage/
+/test/bin/php-cs-fixer
 /vendor/
-/web/
-README.html
+/README.html

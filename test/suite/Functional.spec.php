@@ -3,7 +3,7 @@
 /*
  * This file is part of the Phony for Peridot package.
  *
- * Copyright © 2016 Erin Millard
+ * Copyright © 2017 Erin Millard
  *
  * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
@@ -58,7 +58,7 @@ describe('Functional tests', function () {
         });
     });
 
-    if (!method_exists('ReflectionParameter', 'getType')) {
+    if (version_compare(PHP_VERSION, '7.x', '<')) {
         return;
     }
 

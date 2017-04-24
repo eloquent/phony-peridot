@@ -4,34 +4,20 @@ test: install
 
 coverage: install
 	phpdbg --version
-	phpdbg -qrr vendor/bin/peridot --reporter html-code-coverage --code-coverage-path=coverage
-
-ci: install
-	phpdbg --version
-	vendor/bin/peridot
-	phpdbg -qrr vendor/bin/peridot --reporter clover-code-coverage --code-coverage-path=coverage/clover.xml
-
-lint: install
-	vendor/bin/php-cs-fixer fix
-
-install: vendor/autoload.php
-
-web: install README.md $(shell find assets/web)
-	scripts/build-web
-
-serve: web
-	php -S 0.0.0.0:8000 -t web
+	phpdbg -qrr vendor/bin/peridot --reporter spec --reporter html-code-coverage --code-coverage-path=coverage
 
 open-coverage:
 	open coverage/index.html
 
-open-web:
-	open http://localhost:8000/
+lint: test/bin/php-cs-fixer
+	test/bin/php-cs-fixer fix --using-cache no
 
-.PHONY: test coverage lint install serve ci open-coverage open-web
-
-vendor/autoload.php: composer.lock
+install:
 	composer install
 
-composer.lock: composer.json
-	composer update
+.PHONY: test coverage open-coverage lint install
+
+test/bin/php-cs-fixer:
+	mkdir -p test/bin
+	curl -sSL http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -o test/bin/php-cs-fixer
+	chmod +x test/bin/php-cs-fixer

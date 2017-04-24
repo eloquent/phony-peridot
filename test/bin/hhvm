@@ -1,6 +1,0 @@
-#!/bin/sh
-docker run -it --rm \
-    -v "${PWD}:/usr/src/peridot-phony" \
-    -w /usr/src/peridot-phony \
-    -e "PATH=vendor/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" \
-    hhvm/hhvm "$@"

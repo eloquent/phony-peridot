@@ -1,13 +1,10 @@
 <?php
 
-use Eloquent\Asplode\Asplode;
-use Eloquent\Peridot\Phony\PeridotPhony;
+use Eloquent\Phony\Peridot\PeridotPhony;
 use Evenement\EventEmitterInterface;
 use Peridot\Console\Environment;
 use Peridot\Reporter\CodeCoverageReporters;
 use Peridot\Reporter\ReporterInterface;
-
-Asplode::install();
 
 return function (EventEmitterInterface $emitter) {
     PeridotPhony::install($emitter);

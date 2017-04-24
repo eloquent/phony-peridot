@@ -3,13 +3,13 @@
 /*
  * This file is part of the Phony for Peridot package.
  *
- * Copyright © 2016 Erin Millard
+ * Copyright © 2017 Erin Millard
  *
  * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
  */
 
-namespace Eloquent\Peridot\Phony;
+namespace Eloquent\Phony\Peridot;
 
 use Closure;
 use DateTime;
@@ -98,7 +98,7 @@ describe('PeridotPhony', function () {
         expect($nullable)->to->be->null();
     });
 
-    if (!method_exists('ReflectionParameter', 'getType')) {
+    if (version_compare(PHP_VERSION, '7.x', '<')) {
         return;
     }
 
