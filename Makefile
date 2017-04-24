@@ -9,6 +9,9 @@ coverage: install
 open-coverage:
 	open coverage/index.html
 
+integration: install
+	test/integration/run
+
 lint: test/bin/php-cs-fixer
 	test/bin/php-cs-fixer fix --using-cache no
 

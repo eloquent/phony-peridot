@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/phony.git",
-                "reference": "3b5fdd8db52262b26aa0034e3e96f218d0a49d61"
+                "reference": "0cc8f2332bc9f756528cd06e5fb5beb40f600d6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/phony/zipball/3b5fdd8db52262b26aa0034e3e96f218d0a49d61",
-                "reference": "3b5fdd8db52262b26aa0034e3e96f218d0a49d61",
+                "url": "https://api.github.com/repos/eloquent/phony/zipball/0cc8f2332bc9f756528cd06e5fb5beb40f600d6b",
+                "reference": "0cc8f2332bc9f756528cd06e5fb5beb40f600d6b",
                 "shasum": ""
             },
             "require": {
@@ -65,7 +65,7 @@
                 "stubbing",
                 "test"
             ],
-            "time": "2017-04-24 02:59:47"
+            "time": "2017-04-24 06:37:16"
         },
         {
             "name": "evenement/evenement",
