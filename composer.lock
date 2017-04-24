@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b382d2b32a917880ffba886d8a15f44c",
+    "content-hash": "e08fe5bc49d8e670b13818b1b14ea978",
     "packages": [
         {
             "name": "eloquent/phony",
-            "version": "dev-remove-integrations",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/phony.git",
-                "reference": "0cc8f2332bc9f756528cd06e5fb5beb40f600d6b"
+                "reference": "418375e6714efb3db0defcd0ffe0ac4159e126f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/phony/zipball/0cc8f2332bc9f756528cd06e5fb5beb40f600d6b",
-                "reference": "0cc8f2332bc9f756528cd06e5fb5beb40f600d6b",
+                "url": "https://api.github.com/repos/eloquent/phony/zipball/418375e6714efb3db0defcd0ffe0ac4159e126f1",
+                "reference": "418375e6714efb3db0defcd0ffe0ac4159e126f1",
                 "shasum": ""
             },
             "require": {
@@ -28,9 +28,7 @@
                 "ext-pdo": "*",
                 "hamcrest/hamcrest-php": "^2",
                 "icecave/semver": "^3",
-                "peridot-php/leo": "^1",
-                "peridot-php/peridot": "^1",
-                "phpunit/phpunit": "^4|^5"
+                "phpunit/phpunit": "^4"
             },
             "type": "library",
             "autoload": {
@@ -65,7 +63,7 @@
                 "stubbing",
                 "test"
             ],
-            "time": "2017-04-24 06:37:16"
+            "time": "2017-04-24T08:40:13+00:00"
         },
         {
             "name": "evenement/evenement",
@@ -912,9 +910,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "eloquent/phony": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

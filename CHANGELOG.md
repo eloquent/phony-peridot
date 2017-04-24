@@ -1,5 +1,9 @@
 # Phony for Peridot changelog
 
+## 1.0.0 (2017-04-24)
+
+- **[IMPROVED]** Updated to use the new Phony `1.0.0` release.
+
 ## 0.2.0 (2017-04-24)
 
 - **[BC BREAK]** Renamed from `peridot-phony` to `phony-peridot`, to match new

@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.4",
-        "eloquent/phony": "dev-remove-integrations",
+        "eloquent/phony": "^1",
         "peridot-php/peridot": "^1"
     },
     "require-dev": {
