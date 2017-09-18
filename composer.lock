@@ -4,31 +4,31 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "699b297a3106340963c90beb58a37835",
+    "content-hash": "75a8b482b1068c9d321d097448687d09",
     "packages": [
         {
             "name": "eloquent/phony",
-            "version": "1.0.1",
+            "version": "dev-php72",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/phony.git",
-                "reference": "bff87a1c7c302a05d29b0aa2149bed8fc9f7627b"
+                "reference": "51c0a7f6c4db84e5d1361c2fa62355fb703b8e82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/phony/zipball/bff87a1c7c302a05d29b0aa2149bed8fc9f7627b",
-                "reference": "bff87a1c7c302a05d29b0aa2149bed8fc9f7627b",
+                "url": "https://api.github.com/repos/eloquent/phony/zipball/51c0a7f6c4db84e5d1361c2fa62355fb703b8e82",
+                "reference": "51c0a7f6c4db84e5d1361c2fa62355fb703b8e82",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3"
+                "php": ">=7"
             },
             "require-dev": {
                 "errors/exceptions": "^0.2",
                 "ext-pdo": "*",
                 "hamcrest/hamcrest-php": "^2",
                 "icecave/semver": "^3",
-                "phpunit/phpunit": "^4"
+                "phpunit/phpunit": "^6"
             },
             "type": "library",
             "autoload": {
@@ -63,7 +63,7 @@
                 "stubbing",
                 "test"
             ],
-            "time": "2017-07-04T01:10:30+00:00"
+            "time": "2017-09-18T10:17:47+00:00"
         },
         {
             "name": "evenement/evenement",
@@ -1013,7 +1013,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "eloquent/phony": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=7",
-        "eloquent/phony": "^1",
+        "eloquent/phony": "dev-php72",
         "peridot-php/peridot": "^1"
     },
     "require-dev": {
