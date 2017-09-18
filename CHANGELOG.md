@@ -6,6 +6,8 @@
 - **[IMPROVED]** Support for PHP 7.2 features, including the `object` typehint.
 - **[IMPROVED]** Support for the PHP 7.1 `iterable` typehint in automatically
   injected suites and tests.
+- **[IMPROVED]** Reduced the amount of output generated when mocks, stubs, and
+  spies are encountered by `var_dump()`.
 
 ## 1.0.0 (2017-04-24)
 
