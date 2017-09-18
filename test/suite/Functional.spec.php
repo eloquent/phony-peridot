@@ -85,19 +85,25 @@ describe('Functional tests', function () {
         });
     });
 
-    if (version_compare(PHP_VERSION, '7.1.x', '<')) {
-        return;
+    try {
+        $function = new ReflectionFunction(function (iterable $a) {});
+        $parameters = $function->getParameters();
+        $isIterableTypeSupported = null === $parameters[0]->getClass();
+    } catch (ReflectionException $e) {
+        $isIterableTypeSupported = false;
     }
 
-    describe('PHP 7.1 auto-wiring', function (iterable $iterable) {
-        it('supports auto-wiring for suites', function () use ($iterable) {
-            expect($iterable)->to->equal([]);
-        });
+    if ($isIterableTypeSupported) {
+        describe('PHP 7.1 auto-wiring', function (iterable $iterable) {
+            it('supports auto-wiring for suites', function () use ($iterable) {
+                expect($iterable)->to->equal([]);
+            });
 
-        it('supports auto-wiring for tests', function (iterable $iterable) {
-            expect($iterable)->to->equal([]);
+            it('supports auto-wiring for tests', function (iterable $iterable) {
+                expect($iterable)->to->equal([]);
+            });
         });
-    });
+    }
 
     if (version_compare(PHP_VERSION, '7.2.x', '<')) {
         return;

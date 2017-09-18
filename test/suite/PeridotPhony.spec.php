@@ -8,6 +8,8 @@ use Eloquent\Phony as x;
 use Generator;
 use Peridot\Core\Suite;
 use Peridot\Core\Test;
+use ReflectionException;
+use ReflectionFunction;
 use stdClass;
 
 describe('PeridotPhony', function () {
@@ -125,7 +127,15 @@ describe('PeridotPhony', function () {
         expect($string)->to->equal('');
     });
 
-    if (!version_compare(PHP_VERSION, '7.1.x', '<')) {
+    try {
+        $function = new ReflectionFunction(function (iterable $a) {});
+        $parameters = $function->getParameters();
+        $isIterableTypeSupported = null === $parameters[0]->getClass();
+    } catch (ReflectionException $e) {
+        $isIterableTypeSupported = false;
+    }
+
+    if ($isIterableTypeSupported) {
         it('supports PHP 7.1 typehints', function () {
             $test = new Test(
                 'test-c',
