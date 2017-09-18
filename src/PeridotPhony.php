@@ -1,13 +1,6 @@
 <?php
 
-/*
- * This file is part of the Phony for Peridot package.
- *
- * Copyright © 2017 Erin Millard
- *
- * For the full copyright and license information, please view the LICENSE file
- * that was distributed with this source code.
- */
+declare(strict_types=1);
 
 namespace Eloquent\Phony\Peridot;
 
@@ -39,7 +32,7 @@ class PeridotPhony
      *
      * @return self The newly created plugin.
      */
-    public static function create()
+    public static function create(): self
     {
         return new self();
     }

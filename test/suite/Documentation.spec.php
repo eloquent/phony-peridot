@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the Phony for Peridot package.
- *
- * Copyright © 2017 Erin Millard
- *
- * For the full copyright and license information, please view the LICENSE file
- * that was distributed with this source code.
- */
-
 use Eloquent\Phony as x;
 
 describe('Phony for Peridot', function () {
