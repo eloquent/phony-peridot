@@ -4,7 +4,13 @@ matrix:
     include:
         - php: 7.0
         - php: 7.1
+        - php: 7.2
         - php: nightly
+        - php: hhvm-3.18
+          sudo: required
+          services:
+              - docker
+          env: HHVM=1
     fast_finish: true
     allow_failures:
         - php: nightly
@@ -19,7 +25,7 @@ after_script: scripts/travis-after
 env:
     global:
         - ELOQUENT_PUBLISH_VERSION=7.1
-        - secure: "R2fpsdYJlpPb0gZkglXrymgenR2vnwjn6gEvoGMOeK4r9PnVckBIPQmCzPU+b+Q/oMZygfVnG7v9GhOt4HOdoRknte6XVxjCphc/Gf5VWFKmPWRfE96tfTal9ibVMDfq9IGE0SwQ2Fz+kkpYs3nk5xmgoxR9lkqXb/LFQM6WxYO15MnXHUBK6ZhSXxVPO/0b0vEfMVhmSelI2d7mMfQ6pZvEWVhUoAbhprX+JLpg8w6tnwFMjF+GrcPMubUscru+FapBi7QD6r0Y47WChDmVek5SfKPM+kIJS1z8SGD0uxQm9Vy2OREz5hahcXSX1S2DH85svb+UcegbjFasmVeLb0ADiDxAB2JiFmlefXo2gCxA4+T3aQ3UtwCG5LvSXcsJLh3UCSu3CKwMrPwIX0sMR5IR1TdlTK4FuhSLL0/DtQFtsjZrCtqL+muQ/XZlWX4idFwZEttcqOFq7Qys7Sk2eNRnZIZvD6cfuW9iP/LBotRPFAE0JU2BmfCxO1vaY08iHUm8R9y5XibzoncbRDIrqY5VrQLhzpi1ekmpDZAezzRX4Le876u1EGT4QnFyjvRTavDT/Cga6mYVg+XmT+xYpYnl1Mv1pjKqGOhVDoSD+hMMUMhPa+XIlgnXbxULmZepVfs23qbHgFaUSTWNQ8JC+9137/Zeczd8ZgA0DMdEg3c="
+        - secure: "ZLXvBqTZeeUS214OgDUlmy4XJuRaz/QYLQFZWF/HM7mhtFAQeQAN86Qe1BrogEFlH2uBjaCE3S90WkLtC5CjckUYPxQKtF1fB6Ebas7woahF9RKusupHYZUsTs7DYCCMcwelB7jLexzYVK7WBh9jbNAqNaMFF27nHUQTh89vU+/wMWrWGXN7rHNt0d2EWHCMA9FfLNOtib45M3DbvMscBxXAb2jn1JSwnJ/q671geZip0n06OZlAKO1ntEQZjWTI3oZRsXcQaEsGlglPS5GCQ/kqGazeVSFlYvfSkvjYs/c0yBnXFbt2kaJTKWDCrxMQ5+MAN6dQ8E1S24zUGWKTHSQ2rFKyGBCKy83JIz6g8WBJv4/DINM1l4qqHTV1A/dwN2FOUfe32SlOu6uJSuXvN55KcHFAoaF61lFuQ9eh0Nz5OfJqhGTw6TH3wB+CovcQgWokv3CFniQwrMe0Tt/hgsamQgXQ728UMmpJ//jAyhirz9XzhrS+9VCKH8m1ecQgbvIAULFZuA9A1Cv8G7SuzhImbDFqDo5PUeG0ojbQGJoYLUAHzaW8czOg3xwb8HbBxbLtWu1VqTWzpFA6TBaGp4eN+mBUF5nDtPvoIW9cfCIaSqq9q438LobDteZUDJ1UxhIs/z4vJ0dVf19HnilT51CxtlO9hToHp/ODTF+UHUE="
 
 cache:
     directories:
