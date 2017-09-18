@@ -145,18 +145,18 @@ class PeridotPhony
 
                     break;
 
-            case 'object':
-                if ($this->isObjectTypeSupported) {
-                    $argument = (object) [];
+                case 'object':
+                    if ($this->isObjectTypeSupported) {
+                        $argument = (object) [];
+
+                        break;
+                    }
+
+                    // @codeCoverageIgnoreStart
+                    $argument = Phony::mock('object')->get();
 
                     break;
-                }
-
-                // @codeCoverageIgnoreStart
-                $argument = Phony::mock('object')->get();
-
-                break;
-                // @codeCoverageIgnoreEnd
+                    // @codeCoverageIgnoreEnd
 
                 case 'stdclass':
                     $argument = (object) [];
