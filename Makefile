@@ -9,6 +9,10 @@ coverage: install
 open-coverage:
 	open coverage/index.html
 
+ci:
+	phpdbg --version
+	phpdbg -qrr vendor/bin/peridot --reporter spec --reporter clover-code-coverage --code-coverage-path=coverage
+
 integration: install
 	test/integration/run
 

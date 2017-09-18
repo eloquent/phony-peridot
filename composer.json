@@ -12,15 +12,15 @@
         }
     ],
     "require": {
-        "php": ">=5.4",
+        "php": ">=7",
         "eloquent/phony": "^1",
         "peridot-php/peridot": "^1"
     },
     "require-dev": {
         "ext-pdo": "*",
-        "errors/exceptions": "^0.1",
+        "errors/exceptions": "^0.2",
         "peridot-php/leo": "^1",
-        "peridot-php/peridot-code-coverage-reporters": "^2"
+        "peridot-php/peridot-code-coverage-reporters": "^3"
     },
     "autoload": {
         "psr-4": {
@@ -34,7 +34,7 @@
     },
     "config": {
         "platform": {
-            "php": "5.4.99999"
+            "php": "7.0.99999"
         }
     }
 }
