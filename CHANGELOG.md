@@ -1,5 +1,12 @@
 # Phony for Peridot changelog
 
+## Next release
+
+- **[BC BREAK]** PHP 5 is no longer supported.
+- **[IMPROVED]** Support for PHP 7.2 features, including the `object` typehint.
+- **[IMPROVED]** Support for the PHP 7.1 `iterable` typehint in automatically
+  injected suites and tests.
+
 ## 1.0.0 (2017-04-24)
 
 - **[IMPROVED]** Updated to use the new Phony `1.0.0` release.

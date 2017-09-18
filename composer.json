@@ -30,7 +30,10 @@
     "autoload-dev": {
         "psr-4": {
             "Eloquent\\Phony\\Peridot\\": "test/src"
-        }
+        },
+        "files": [
+            "test/src/object.php"
+        ]
     },
     "config": {
         "platform": {

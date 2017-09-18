@@ -6,6 +6,7 @@ describe('Functional tests', function () {
         stdClass $object,
         callable $callable,
         Closure $closure,
+        Generator $generator,
         DateTime $time,
         $bare,
         bool $nullable = null
@@ -15,6 +16,7 @@ describe('Functional tests', function () {
             $object,
             $callable,
             $closure,
+            $generator,
             $time,
             $bare,
             $nullable
@@ -24,6 +26,7 @@ describe('Functional tests', function () {
             expect($callable)->to->be->an->instanceof('Eloquent\Phony\Stub\StubVerifier');
             expect($callable())->to->be->null();
             expect($closure())->to->be->null();
+            expect(iterator_to_array($generator))->to->equal([]);
             expect($time)->to->be->an->instanceof('Eloquent\Phony\Mock\Mock');
             expect($bare)->to->be->null();
             expect($nullable)->to->be->null();
@@ -34,6 +37,7 @@ describe('Functional tests', function () {
             stdClass $object,
             callable $callable,
             Closure $closure,
+            Generator $generator,
             DateTime $time,
             $bare,
             bool $nullable = null
@@ -43,49 +47,69 @@ describe('Functional tests', function () {
             expect($callable)->to->be->an->instanceof('Eloquent\Phony\Stub\StubVerifier');
             expect($callable())->to->be->null();
             expect($closure())->to->be->null();
+            expect(iterator_to_array($generator))->to->equal([]);
             expect($time)->to->be->an->instanceof('Eloquent\Phony\Mock\Mock');
             expect($bare)->to->be->null();
             expect($nullable)->to->be->null();
         });
     });
 
-    if (version_compare(PHP_VERSION, '7.x', '<')) {
-        return;
-    }
-
     describe('PHP 7 auto-wiring', function (
         bool $bool,
         int $int,
         float $float,
-        string $string,
-        Generator $generator
+        string $string
     ) {
         it('supports auto-wiring for suites', function () use (
             $bool,
             $int,
             $float,
-            $string,
-            $generator
+            $string
         ) {
             expect($bool)->to->be->false();
             expect($int)->to->equal(0);
             expect($float)->to->equal(.0);
             expect($string)->to->equal('');
-            expect(iterator_to_array($generator))->to->equal([]);
         });
 
         it('supports auto-wiring for tests', function (
             bool $bool,
             int $int,
             float $float,
-            string $string,
-            Generator $generator
+            string $string
         ) {
             expect($bool)->to->be->false();
             expect($int)->to->equal(0);
             expect($float)->to->equal(.0);
             expect($string)->to->equal('');
-            expect(iterator_to_array($generator))->to->equal([]);
+        });
+    });
+
+    if (version_compare(PHP_VERSION, '7.1.x', '<')) {
+        return;
+    }
+
+    describe('PHP 7.1 auto-wiring', function (iterable $iterable) {
+        it('supports auto-wiring for suites', function () use ($iterable) {
+            expect($iterable)->to->equal([]);
+        });
+
+        it('supports auto-wiring for tests', function (iterable $iterable) {
+            expect($iterable)->to->equal([]);
+        });
+    });
+
+    if (version_compare(PHP_VERSION, '7.2.x', '<')) {
+        return;
+    }
+
+    describe('PHP 7.2 auto-wiring', function (object $object) {
+        it('supports auto-wiring for suites', function () use ($object) {
+            expect($object)->to->loosely->equal((object) []);
+        });
+
+        it('supports auto-wiring for tests', function (object $object) {
+            expect($object)->to->loosely->equal((object) []);
         });
     });
 });
