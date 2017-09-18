@@ -94,9 +94,6 @@ class PeridotPhony
 
     private function __construct()
     {
-        $this->isScalarTypeHintSupported =
-            method_exists('ReflectionParameter', 'getType');
-
         try {
             $function = new ReflectionFunction(function (object $a) {});
             $parameters = $function->getParameters();
@@ -119,21 +116,7 @@ class PeridotPhony
                 continue;
             }
 
-            if ($this->isScalarTypeHintSupported) {
-                $typeName = strval($parameter->getType());
-                // @codeCoverageIgnoreStart
-            } elseif ($class = $parameter->getClass()) {
-                $typeName = $class->getName();
-            } elseif ($parameter->isArray()) {
-                $typeName = 'array';
-            } elseif ($parameter->isCallable()) {
-                $typeName = 'callable';
-            } else {
-                $arguments[] = null;
-
-                continue;
-            }
-            // @codeCoverageIgnoreEnd
+            $typeName = strval($parameter->getType());
 
             switch (strtolower($typeName)) {
                 case 'bool':
@@ -206,6 +189,5 @@ class PeridotPhony
         return $arguments;
     }
 
-    private $isScalarTypeHintSupported;
     private $isObjectTypeSupported;
 }
