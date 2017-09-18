@@ -61,8 +61,6 @@ Once the plugin is installed, any tests or suites that are defined with
 parameters will be supplied with matching arguments when run:
 
 ```php
-use Eloquent\Phony as x;
-
 describe('Phony for Peridot', function () {
     it('Auto-wires test dependencies', function (PDO $db) {
         expect($db)->to->be->an->instanceof('PDO');
@@ -78,11 +76,11 @@ describe('Phony for Peridot', function () {
 [verification]:
 
 ```php
-use Eloquent\Phony as x;
+use function Eloquent\Phony\on;
 
 describe('Phony for Peridot', function () {
     it('Supports stubbing', function (PDO $db) {
-        x\on($db)->exec->with('DELETE FROM users')->returns(111);
+        on($db)->exec->with('DELETE FROM users')->returns(111);
 
         expect($db->exec('DELETE FROM users'))->to->equal(111);
     });
@@ -90,7 +88,7 @@ describe('Phony for Peridot', function () {
     it('Supports verification', function (PDO $db) {
         $db->exec('DROP TABLE users');
 
-        x\on($db)->exec->calledWith('DROP TABLE users');
+        on($db)->exec->calledWith('DROP TABLE users');
     });
 });
 ```
@@ -101,8 +99,6 @@ describe('Phony for Peridot', function () {
 a `callable` type declaration:
 
 ```php
-use Eloquent\Phony as x;
-
 describe('Phony for Peridot', function () {
     it('Supports callable stubs', function (callable $stub) {
         $stub->with('a', 'b')->returns('c');
@@ -138,6 +134,8 @@ By necessity, the supplied value will not be wrapped in a [mock handle]. In
 order to obtain a handle, simply use [`on()`]:
 
 ```php
+use function Eloquent\Phony\on;
+
 it('Example mock handle retrieval', function (ClassA $mock) {
     $handle = on($mock);
 });
