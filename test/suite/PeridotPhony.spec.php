@@ -49,7 +49,7 @@ describe('PeridotPhony', function () {
     it('supports typehints', function () {
         $test = new Test(
             'test-c',
-            function (bool $bool, int $int, string $string) {}
+            function (bool $bool, int $int, string $string, $bare) {}
         );
         $this->suite->addTest($test);
         $this->subject->onSuiteStart($this->suite);
@@ -57,10 +57,11 @@ describe('PeridotPhony', function () {
 
         expect($actual)->to->be->an('array');
 
-        list($bool, $int, $string) = $actual;
+        list($bool, $int, $string, $bare) = $actual;
 
         expect($bool)->to->be->false();
         expect($int)->to->equal(0);
         expect($string)->to->equal('');
+        expect($bare)->to->be->null();
     });
 });
