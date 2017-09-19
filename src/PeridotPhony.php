@@ -7,7 +7,6 @@ namespace Eloquent\Phony\Peridot;
 use Eloquent\Phony\Phony;
 use Evenement\EventEmitterInterface;
 use Peridot\Core\Suite;
-use ReflectionException;
 use ReflectionFunction;
 
 /**
@@ -94,15 +93,6 @@ class PeridotPhony
 
     private function __construct()
     {
-        try {
-            $function = new ReflectionFunction(function (object $a) {});
-            $parameters = $function->getParameters();
-            $this->isObjectTypeSupported = null === $parameters[0]->getClass();
-            // @codeCoverageIgnoreStart
-        } catch (ReflectionException $e) {
-            $this->isObjectTypeSupported = false;
-        }
-        // @codeCoverageIgnoreEnd
     }
 
     private function parameterArguments(array $parameters)
@@ -110,84 +100,13 @@ class PeridotPhony
         $arguments = [];
 
         foreach ($parameters as $parameter) {
-            if ($parameter->allowsNull()) {
+            if ($type = $parameter->getType()) {
+                $arguments[] = Phony::emptyValue($type);
+            } else {
                 $arguments[] = null;
-
-                continue;
             }
-
-            $typeName = strval($parameter->getType());
-
-            switch (strtolower($typeName)) {
-                case 'bool':
-                    $argument = false;
-
-                    break;
-
-                case 'int':
-                    $argument = 0;
-
-                    break;
-
-                case 'float':
-                    $argument = .0;
-
-                    break;
-
-                case 'string':
-                    $argument = '';
-
-                    break;
-
-                case 'array':
-                case 'iterable':
-                    $argument = [];
-
-                    break;
-
-                case 'object':
-                    if ($this->isObjectTypeSupported) {
-                        $argument = (object) [];
-
-                        break;
-                    }
-
-                    // @codeCoverageIgnoreStart
-                    $argument = Phony::mock('object')->get();
-
-                    break;
-                    // @codeCoverageIgnoreEnd
-
-                case 'stdclass':
-                    $argument = (object) [];
-
-                    break;
-
-                case 'callable':
-                    $argument = Phony::stub();
-
-                    break;
-
-                case 'closure':
-                    $argument = function () {};
-
-                    break;
-
-                case 'generator':
-                    $fn = function () { return; yield; };
-                    $argument = $fn();
-
-                    break;
-
-                default:
-                    $argument = Phony::mock($typeName)->get();
-            }
-
-            $arguments[] = $argument;
         }
 
         return $arguments;
     }
-
-    private $isObjectTypeSupported;
 }
