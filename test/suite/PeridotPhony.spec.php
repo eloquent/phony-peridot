@@ -2,9 +2,10 @@
 
 namespace Eloquent\Phony\Peridot;
 
-use Eloquent\Phony as x;
+use Evenement\EventEmitterInterface;
 use Peridot\Core\Suite;
 use Peridot\Core\Test;
+use function Eloquent\Phony\mock;
 
 describe('PeridotPhony', function () {
     beforeEach(function () {
@@ -18,7 +19,7 @@ describe('PeridotPhony', function () {
     });
 
     it('attach()', function () {
-        $emitter = x\mock('Evenement\EventEmitterInterface');
+        $emitter = mock(EventEmitterInterface::class);
         $this->subject->install($emitter->get());
 
         $emitter->on->calledWith('suite.define', [$this->subject, 'onSuiteDefine']);
@@ -26,7 +27,7 @@ describe('PeridotPhony', function () {
     });
 
     it('detach()', function () {
-        $emitter = x\mock('Evenement\EventEmitterInterface');
+        $emitter = mock('Evenement\EventEmitterInterface');
         $this->subject->detach($emitter->get());
 
         $emitter->removeListener->calledWith('suite.define', [$this->subject, 'onSuiteDefine']);

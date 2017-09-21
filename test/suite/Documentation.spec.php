@@ -1,6 +1,6 @@
 <?php
 
-use Eloquent\Phony as x;
+use function Eloquent\Phony\on;
 
 describe('Phony for Peridot', function () {
     it('Auto-wires test dependencies', function (PDO $db) {
@@ -8,7 +8,7 @@ describe('Phony for Peridot', function () {
     });
 
     it('Supports stubbing', function (PDO $db) {
-        x\on($db)->exec->with('DELETE FROM users')->returns(111);
+        on($db)->exec->with('DELETE FROM users')->returns(111);
 
         expect($db->exec('DELETE FROM users'))->to->equal(111);
     });
@@ -16,7 +16,7 @@ describe('Phony for Peridot', function () {
     it('Supports verification', function (PDO $db) {
         $db->exec('DROP TABLE users');
 
-        x\on($db)->exec->calledWith('DROP TABLE users');
+        on($db)->exec->calledWith('DROP TABLE users');
     });
 
     it('Supports callable stubs', function (callable $stub) {
