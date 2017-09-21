@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use function Eloquent\Phony\on;
 
 describe('Phony for Peridot', function () {

@@ -1,4 +1,4 @@
 /coverage/
-/test/bin/php-cs-fixer
 /vendor/
+/.php_cs.cache
 /README.html

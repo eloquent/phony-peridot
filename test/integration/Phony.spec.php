@@ -2,8 +2,6 @@
 
 use Eloquent\Phony\Phony;
 
-error_reporting(-1);
-
 describe('Phony', function () {
     beforeEach(function () {
         $this->handle = Phony::mock('Eloquent\Phony\Peridot\Test\TestClassA');

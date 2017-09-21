@@ -22,14 +22,9 @@ integration: install
 	test/integration/run
 
 .PHONY: lint
-lint: test/bin/php-cs-fixer
-	test/bin/php-cs-fixer fix --using-cache no
+lint: install
+	vendor/bin/php-cs-fixer fix
 
 .PHONY: install
 install:
 	composer install
-
-test/bin/php-cs-fixer:
-	mkdir -p test/bin
-	curl -sSL http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -o test/bin/php-cs-fixer
-	chmod +x test/bin/php-cs-fixer
