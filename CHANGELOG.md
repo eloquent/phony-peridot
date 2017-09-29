@@ -1,6 +1,10 @@
 # Phony for Peridot changelog
 
-## Next release
+## 2.0.0 (2017-09-29)
+
+This release uses *Phony* `2.x` under the hood. Check out the
+[migration guide][migration-2] for *Phony* `2.x`, which also applies to this
+release.
 
 - **[BC BREAK]** PHP 5 is no longer supported ([#216]).
 - **[BC BREAK]** HHVM is no longer supported ([#216], [#219]).
@@ -9,6 +13,7 @@
 - **[IMPROVED]** Support for the PHP 7.1 `iterable` typehint in automatically
   injected suites and tests.
 
+[migration-2]: https://github.com/eloquent/phony/blob/2.0.0/MIGRATING.md#migrating-from-1x-to-2x
 [#216]: https://github.com/eloquent/phony/issues/216
 [#219]: https://github.com/eloquent/phony/issues/219
 [#224]: https://github.com/eloquent/phony/issues/224
