@@ -1,22 +1,29 @@
 version: "{branch}-{build}"
 build: false
-clone_folder: C:\projects\phony
+platform: x86
+
+init:
+  - SET PATH=c:\php;%PATH%
+  - SET COMPOSER_NO_INTERACTION=1
+  - SET PHP=1
+
+cache:
+  - '%LOCALAPPDATA%\Composer\files'
 
 install:
-  - cinst OpenSSL.Light -y
-  - SET PATH=C:\Program Files\OpenSSL;%PATH%
-  - cinst --allow-empty-checksums php -version 7.0.7 -y
-  - cd c:\tools\php
-  - copy php.ini-production php.ini
+  - ps: Set-Service wuauserv -StartupType Manual
+  - cinst -y php composer
+  - refreshenv
+  - cd c:\tools\php73
+  - copy php.ini-production php.ini /Y
   - echo date.timezone="UTC" >> php.ini
   - echo extension_dir=ext >> php.ini
   - echo extension=php_openssl.dll >> php.ini
+  - echo extension=php_mbstring.dll >> php.ini
   - echo extension=php_curl.dll >> php.ini
-  - SET PATH=C:\tools\php;%PATH%
-  - cd C:\projects\phony
-  - php -r "readfile('http://getcomposer.org/installer');" | php
-  - php composer.phar install --prefer-source
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - composer install --no-progress
 
 test_script:
-  - cd C:\projects\phony
+  - cd %APPVEYOR_BUILD_FOLDER%
   - vendor/bin/peridot

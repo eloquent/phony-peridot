@@ -27,4 +27,8 @@ lint: install
 
 .PHONY: install
 install:
+ifeq (${TRAVIS_PHP_VERSION},nightly)
+	composer install --ignore-platform-reqs
+else
 	composer install
+endif

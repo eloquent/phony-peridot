@@ -2,26 +2,26 @@
 
 $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__)
-    ->exclude(array(
+    ->exclude([
         'build',
         'coverage',
         'test/fixture',
         'vendor',
         'web',
-    ));
+    ]);
 
 return PhpCsFixer\Config::create()
-    ->setRules(array(
+    ->setRules([
         '@PSR2' => true,
 
-        'array_syntax' => array('syntax' => 'short'),
+        'array_syntax' => ['syntax' => 'short'],
         'binary_operator_spaces' => false,
         'blank_line_after_opening_tag' => true,
         'blank_line_before_return' => true,
         'braces' => false,
         'cast_spaces' => true,
-        'class_definition' => array('singleLine' => false),
-        'concat_space' => array('spacing' => 'one'),
+        'class_definition' => ['singleLine' => false],
+        'concat_space' => ['spacing' => 'one'],
         'declare_equal_normalize' => true,
         'function_typehint_space' => true,
         'hash_to_slash_comment' => true,
@@ -62,7 +62,6 @@ return PhpCsFixer\Config::create()
         'phpdoc_types' => true,
         'pre_increment' => true,
         'return_type_declaration' => true,
-        'self_accessor' => true,
         'short_scalar_cast' => true,
         'single_blank_line_before_namespace' => true,
         'single_quote' => true,
@@ -73,5 +72,5 @@ return PhpCsFixer\Config::create()
         'trim_array_spaces' => true,
         'unary_operator_spaces' => true,
         'whitespace_after_comma_in_array' => true,
-    ))
+    ])
     ->setFinder($finder);

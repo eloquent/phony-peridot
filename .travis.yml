@@ -1,29 +1,18 @@
 language: php
-
 matrix:
-    include:
-        - php: 7.0
-        - php: 7.1
-        - php: 7.2
-        - php: nightly
-    fast_finish: true
-    allow_failures:
-        - php: nightly
-
-before_install:
-    - phpenv config-rm xdebug.ini || true
-    - composer config --global github-oauth.github.com $GITHUB_TOKEN
-install: composer install --prefer-dist --no-progress --no-interaction
+  include:
+    - php: 7.1
+    - php: 7.2
+    - php: 7.3
+    - php: nightly
+      env: PHP_CS_FIXER_IGNORE_ENV=1
+  fast_finish: true
+  allow_failures:
+    - php: nightly
+before_install: phpenv config-rm xdebug.ini || true
+install: make install
 script: scripts/travis
 after_script: scripts/travis-after
-
 env:
-    global:
-        - ELOQUENT_PUBLISH_VERSION=7.1
-        - secure: "ZLXvBqTZeeUS214OgDUlmy4XJuRaz/QYLQFZWF/HM7mhtFAQeQAN86Qe1BrogEFlH2uBjaCE3S90WkLtC5CjckUYPxQKtF1fB6Ebas7woahF9RKusupHYZUsTs7DYCCMcwelB7jLexzYVK7WBh9jbNAqNaMFF27nHUQTh89vU+/wMWrWGXN7rHNt0d2EWHCMA9FfLNOtib45M3DbvMscBxXAb2jn1JSwnJ/q671geZip0n06OZlAKO1ntEQZjWTI3oZRsXcQaEsGlglPS5GCQ/kqGazeVSFlYvfSkvjYs/c0yBnXFbt2kaJTKWDCrxMQ5+MAN6dQ8E1S24zUGWKTHSQ2rFKyGBCKy83JIz6g8WBJv4/DINM1l4qqHTV1A/dwN2FOUfe32SlOu6uJSuXvN55KcHFAoaF61lFuQ9eh0Nz5OfJqhGTw6TH3wB+CovcQgWokv3CFniQwrMe0Tt/hgsamQgXQ728UMmpJ//jAyhirz9XzhrS+9VCKH8m1ecQgbvIAULFZuA9A1Cv8G7SuzhImbDFqDo5PUeG0ojbQGJoYLUAHzaW8czOg3xwb8HbBxbLtWu1VqTWzpFA6TBaGp4eN+mBUF5nDtPvoIW9cfCIaSqq9q438LobDteZUDJ1UxhIs/z4vJ0dVf19HnilT51CxtlO9hToHp/ODTF+UHUE="
-
-cache:
-    directories:
-        - $HOME/.composer
-
-sudo: false
+  global:
+    - ELOQUENT_PUBLISH_VERSION=7.3

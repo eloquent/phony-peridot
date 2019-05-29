@@ -12,8 +12,8 @@
         }
     ],
     "require": {
-        "php": ">=7",
-        "eloquent/phony": "^2",
+        "php": ">=7.1",
+        "eloquent/phony": "^3",
         "peridot-php/peridot": "^1"
     },
     "require-dev": {
@@ -35,10 +35,5 @@
         "files": [
             "test/src/object.php"
         ]
-    },
-    "config": {
-        "platform": {
-            "php": "7.0.99999"
-        }
     }
 }
