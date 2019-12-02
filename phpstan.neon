@@ -1,0 +1,18 @@
+parameters:
+  level: max
+  paths: [src, test]
+  inferPrivatePropertyTypeFromConstructor: true
+  ignoreErrors:
+    # - /^Function afterEach not found.$/
+    - /^Function beforeEach not found.$/
+    # - /^Function context not found.$/
+    - /^Function describe not found.$/
+    # - /^Function expect not found.$/
+    - /^Function it not found.$/
+
+    # PHPStan doesn't seem to understand the callable type
+    - '/expects Closure|string, callable\(\): mixed given./'
+
+    # Peridot uses $this
+    - '/^Using \$this outside a class\.$/'
+    - '/^Undefined variable: \$this$/'

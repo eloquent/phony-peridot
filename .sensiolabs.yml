@@ -1,3 +1,0 @@
-rules:
-    php.method_too_long:
-        enabled: false # caused by a big, but simple switch statement

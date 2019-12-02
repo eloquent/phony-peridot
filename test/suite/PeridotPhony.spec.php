@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Eloquent\Phony\Peridot;
 
+use function Eloquent\Phony\mock;
 use Evenement\EventEmitterInterface;
 use Peridot\Core\Suite;
 use Peridot\Core\Test;
-use function Eloquent\Phony\mock;
 
 describe('PeridotPhony', function () {
     beforeEach(function () {
