@@ -1,5 +1,9 @@
 # Phony for Peridot changelog
 
+## Next release
+
+- **[BC BREAK]** PHP 7.1 is no longer supported.
+
 ## 2.0.0 (2017-09-29)
 
 This release uses *Phony* `2.x` under the hood. Check out the
