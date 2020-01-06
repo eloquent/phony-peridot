@@ -19,7 +19,7 @@ class PeridotPhony
      *
      * @return self The newly created plugin.
      */
-    public static function install(EventEmitterInterface $emitter)
+    public static function install(EventEmitterInterface $emitter): self
     {
         $instance = new self();
         $instance->attach($emitter);
@@ -40,7 +40,7 @@ class PeridotPhony
     /**
      * Attach the plugin.
      */
-    public function attach(EventEmitterInterface $emitter)
+    public function attach(EventEmitterInterface $emitter): void
     {
         $emitter->on('suite.define', [$this, 'onSuiteDefine']);
         $emitter->on('suite.start', [$this, 'onSuiteStart']);
@@ -49,7 +49,7 @@ class PeridotPhony
     /**
      * Detach the plugin.
      */
-    public function detach(EventEmitterInterface $emitter)
+    public function detach(EventEmitterInterface $emitter): void
     {
         $emitter->removeListener('suite.define', [$this, 'onSuiteDefine']);
         $emitter->removeListener('suite.start', [$this, 'onSuiteStart']);
@@ -60,7 +60,7 @@ class PeridotPhony
      *
      * @access private
      */
-    public function onSuiteDefine(Suite $suite)
+    public function onSuiteDefine(Suite $suite): void
     {
         $definition = new ReflectionFunction($suite->getDefinition());
         $parameters = $definition->getParameters();
@@ -77,7 +77,7 @@ class PeridotPhony
      *
      * @access private
      */
-    public function onSuiteStart(Suite $suite)
+    public function onSuiteStart(Suite $suite): void
     {
         foreach ($suite->getTests() as $test) {
             $definition = new ReflectionFunction($test->getDefinition());
@@ -95,7 +95,12 @@ class PeridotPhony
     {
     }
 
-    private function parameterArguments(array $parameters)
+    /**
+     * @param array<mixed> $parameters
+     *
+     * @return array<mixed>
+     */
+    private function parameterArguments(array $parameters): array
     {
         $arguments = [];
 

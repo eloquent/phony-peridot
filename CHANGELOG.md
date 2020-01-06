@@ -2,6 +2,9 @@
 
 ## Next release
 
+This release uses *Phony* `4.x`. There no BC breaking API changes aside from
+stricter type declarations.
+
 - **[BC BREAK]** PHP 7.1 is no longer supported.
 
 ## 2.0.0 (2017-09-29)

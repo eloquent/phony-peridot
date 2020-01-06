@@ -13,19 +13,19 @@
     ],
     "require": {
         "php": ">=7.2",
-        "eloquent/phony": "^3",
+        "eloquent/phony": "^4",
         "peridot-php/peridot": "^1"
     },
     "require-dev": {
         "ext-pdo": "*",
         "eloquent/code-style": "^1",
-        "eloquent/phpstan-phony": "^0.6",
+        "eloquent/phpstan-phony": "^0.7",
         "errors/exceptions": "^0.2",
         "friendsofphp/php-cs-fixer": "^2",
         "peridot-php/leo": "^1",
         "peridot-php/peridot-code-coverage-reporters": "^3",
         "phpstan/extension-installer": "^1",
-        "phpstan/phpstan": "^0.11"
+        "phpstan/phpstan": "^0.12"
     },
     "autoload": {
         "psr-4": {
