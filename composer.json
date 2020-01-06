@@ -39,5 +39,10 @@
         "files": [
             "test/src/object.php"
         ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.1.x-dev"
+        }
     }
 }

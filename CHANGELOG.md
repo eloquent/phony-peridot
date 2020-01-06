@@ -1,6 +1,6 @@
 # Phony for Peridot changelog
 
-## Next release
+## 3.0.0 (2020-01-06)
 
 This release uses *Phony* `4.x`. There no BC breaking API changes aside from
 stricter type declarations.
