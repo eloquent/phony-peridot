@@ -11,8 +11,7 @@ parameters:
     - /^Function it not found.$/
 
     # PHPStan doesn't seem to understand the callable type
-    - '/expects Closure|string, callable\(\): mixed given./'
+    - '/expects Closure\|string, callable\(\): mixed given./'
 
     # Peridot uses $this
-    - '/^Using \$this outside a class\.$/'
     - '/^Undefined variable: \$this$/'
